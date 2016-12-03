@@ -43,7 +43,7 @@ public class Tuple {
   //Return true if this tuple is equal to compareTuple; false otherwise
   public boolean equals(Tuple compareTuple) {
 	  for (int i = 0; i < tuple.size(); i++){
-		  if(this.tuple.get(i).compareTo(compareTuple.tuple.get(i)) != 0){
+		  if(this.tuple.get(i).toString().compareTo(compareTuple.tuple.get(i).toString()) != 0){
 			  return false;
 		  }
 	  }
@@ -54,13 +54,13 @@ public class Tuple {
 	  Tuple clone = new Tuple(attr, domains);
 	  for (int i = 0; i < tuple.size(); i++){
 		  if (domains.get(i).equals("INTEGER")){
-			  int x = new Integer((Integer) tuple.get(i));
+			  int x = new Integer((Integer) Integer.parseInt(tuple.get(i).toString()));
 			  clone.addIntegerComponent(x);
 		  } else if (domains.get(i).equals("VARCHAR")){
-			  String y = new String((String) tuple.get(i));
+			  String y = new String((String) tuple.get(i).toString());
 			  clone.addStringComponent(y);
 		  } else {
-			  Double z = new Double((Double) tuple.get(i));
+			  Double z = new Double((Double) Double.parseDouble(tuple.get(i).toString()));
 			  clone.addDoubleComponent(z);
 		  }
 	  }
@@ -71,25 +71,25 @@ public class Tuple {
 	  Tuple con = new Tuple(attrs, doms);
 	  for (int i = 0; i < this.tuple.size(); i ++){
 		  if (doms.get(i).equals("INTEGER")) {
-			  int x = new Integer((Integer) this.tuple.get(i));
+			  int x = new Integer((Integer) Integer.parseInt(this.tuple.get(i).toString()));
 			  con.addIntegerComponent(x);
 		  } else if (domains.get(i).equals("VARCHAR")) {
-			  String y = new String((String) this.tuple.get(i));
+			  String y = new String((String) this.tuple.get(i).toString());
 			  con.addStringComponent(y);
 		  } else {
-			  Double z = new Double((Double) this.tuple.get(i));
+			  Double z = new Double((Double) Double.parseDouble(this.tuple.get(i).toString()));
 			  con.addDoubleComponent(z);
 		  }
 	  }
 	  for (int i = 0; i < t2.tuple.size(); i++) {
 		  if (doms.get(i).equals("INTEGER")) {
-			  int x = new Integer((Integer) t2.tuple.get(i));
+			  int x = new Integer((Integer) Integer.parseInt(t2.tuple.get(i).toString()));
 			  con.addIntegerComponent(x);
 		  } else if (domains.get(i).equals("VARCHAR")) {
-			  String y = new String((String) t2.tuple.get(i));
+			  String y = new String((String) t2.tuple.get(i).toString());
 			  con.addStringComponent(y);
 		  } else {
-			  Double z = new Double((Double) t2.tuple.get(i));
+			  Double z = new Double((Double) Double.parseDouble(t2.tuple.get(i).toString()));
 			  con.addDoubleComponent(z);
 		  }
 	  }
