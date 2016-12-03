@@ -35,7 +35,9 @@ public class Query1 {
     b.add("LNAME");
     b.add("ADDRESS");
     
-    System.out.print(db.getRelation("DEPARTMENT").select("col", "DNAME", "=", "str", "Research").rename(a).join(db.getRelation("EMPLOYEE")).project(b));
+    Relation answer = db.getRelation("DEPARTMENT").select("col", "DNAME", "=", "str", "Research").rename(a).join(db.getRelation("EMPLOYEE")).project(b);
+    answer.setName("ANSWER");
+    System.out.print(answer);
   }
   
 }

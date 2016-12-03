@@ -32,7 +32,9 @@ public class Query6 {
 	    c.add("LNAME");
 	    c.add("FNAME");
 	    
-	    System.out.print(db.getRelation("EMPLOYEE").project(a).minus(db.getRelation("DEPENDENT").project(b)).join(db.getRelation("EMPLOYEE")).project(c));
+	    Relation answer = db.getRelation("EMPLOYEE").project(a).minus(db.getRelation("DEPENDENT").project(b)).join(db.getRelation("EMPLOYEE")).project(c);
+	    answer.setName("ANSWER");
+	    System.out.println(answer);
 	  }
 
 }

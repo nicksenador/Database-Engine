@@ -41,7 +41,9 @@ public class Query2 {
     b.add("ADDRESS");
     b.add("BDATE");
     
-    System.out.print(db.getRelation("PROJECTS").select("col", "PLOCATION", "=", "str", "Stafford").join(db.getRelation("DEPARTMENT").rename(a)).join(db.getRelation("EMPLOYEE")).project(b));
+    Relation answer = db.getRelation("PROJECTS").select("col", "PLOCATION", "=", "str", "Stafford").join(db.getRelation("DEPARTMENT").rename(a)).join(db.getRelation("EMPLOYEE")).project(b);
+    answer.setName("ANSWER");
+    System.out.print(answer);
   }
   
 }
